@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-6">
+    <%= form_with(model: @corporates, local: true) do |f| %>
+      <%= f.label :corp_name %>
+      <%= f.text_field :corp_name %>
+      
+      <%= f.label :aspiration %>
+      <%= f.text_field :aspiration %>
+      
+      <%= f.submit "企業を登録する", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

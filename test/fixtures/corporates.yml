@@ -1,11 +1,15 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+orange:
+  updated_at: <%= 10.minutes.ago %>
+  user: michael
 
-one:
-  corp_name: MyString
-  aspiration: MyString
-  user: one
+tau_manifesto:
+  updated_at: <%= 3.years.ago %>
+  user: michael
 
-two:
-  corp_name: MyString
-  aspiration: MyString
-  user: two
+cat_video:
+  updated_at: <%= 2.hours.ago %>
+  user: michael
+
+most_recent:
+  updated_at: <%= Time.zone.now %>
+  user: michael

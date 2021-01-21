@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @corporates = @user.corporates
   end
   
   def new

@@ -69,4 +69,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?('')
   end
   
+  test "associated corporates should be destroy" do
+    @user.save
+    @user.corporates.create!(corp_name: "A", aspiration: "B")
+    assert_difference 'Corporate.count', -1 do
+      @user.destroy
+    end
+  end
+  
 end
