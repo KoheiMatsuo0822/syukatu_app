@@ -1,5 +1,5 @@
 <li id="corporate-<%= corporate.id %>">
-  <span class="corp-name">企業名：<%= corporate.corp_name %></span>
+  <span class="corp-name"><%= link_to corporate.corp_name, detail_path(corporate.id) %></span>
   <span class="aspiration">志望度：<%= corporate.aspiration %></span>
   <span class="timestamp">
     更新：<%= corporate.updated_at.in_time_zone("Tokyo") %>

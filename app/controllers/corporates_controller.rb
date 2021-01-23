@@ -17,7 +17,12 @@ class CorporatesController < ApplicationController
     end
   end
   
-  def destroy
+  def detail
+    @user = User.find_by(id: session[:user_id])
+    @corporate = @user.corporates.find_by(id: params[:id])
+  end
+  
+  def destroys
   end
 
 end

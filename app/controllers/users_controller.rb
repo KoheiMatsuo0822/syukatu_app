@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @corporates = @user.corporates
+    @corporate = @corporates.find_by(id: params[:id])
   end
   
   def new

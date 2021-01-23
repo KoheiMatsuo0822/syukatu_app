@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/new_corp', to: 'corporates#new'
   post '/new_corp', to: 'corporates#create'
+  get '/:id/detail', to: 'corporates#detail', as: 'detail'
   resources :users
   resources :corporates
   

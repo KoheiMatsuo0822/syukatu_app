@@ -12,9 +12,9 @@
     <section class="corp-list">
       <h1>登録企業一覧</h1>
       <% if @user.corporates.any? %>
-        <ol class="corp-list">
+        <ul class="corp-list">
           <%= render @corporates %>
-        </ol>
+        </ul>
       <% end %>
     </section>
   </div>
