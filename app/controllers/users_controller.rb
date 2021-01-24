@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :index, :destroy]
+  before_action :correct_user,   only: [:show, :edit, :update, :destroy]
   before_action :user_admin,     only: [:index]
   
   def show
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   
   def update
     if @user.update(user_params)
-      flash[:success] = "プロフィールを更新しました！"
+      flash[:success] = "ユーザー設定を更新しました！"
       redirect_to @user
     else
       render 'edit'
@@ -41,6 +41,11 @@ class UsersController < ApplicationController
     @users = User.all
   end
   
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "ユーザーを削除しました"
+    redirect_to root_path
+  end
   
   private
   
