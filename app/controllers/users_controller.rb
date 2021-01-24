@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update]
   before_action :correct_user,   only: [:edit, :update]
+  before_action :user_admin,     only: [:index]
   
   def show
     @user = User.find(params[:id])
@@ -35,6 +36,12 @@ class UsersController < ApplicationController
     end
   end
   
+  def index
+    @user = current_user
+    @users = User.all
+  end
+  
+  
   private
   
     def user_params
@@ -53,6 +60,12 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+    
+    def user_admin
+      if current_user.admin == false
+        redirect_to root_path
+      end
     end
     
 end

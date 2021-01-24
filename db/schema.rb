@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_20_073521) do
+ActiveRecord::Schema.define(version: 2021_01_24_015637) do
 
   create_table "corporates", force: :cascade do |t|
     t.string "corp_name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_01_20_073521) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.string "remember_digest"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
