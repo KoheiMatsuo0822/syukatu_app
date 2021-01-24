@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/new_corp', to: 'corporates#new'
   post '/new_corp', to: 'corporates#create'
   get '/:id/detail', to: 'corporates#detail', as: 'detail'
+  get '/:id/edit_corp', to: 'corporates#edit', as: 'edit_corp'
   resources :users
   resources :corporates
   

@@ -17,6 +17,23 @@ class CorporatesController < ApplicationController
     end
   end
   
+  def update
+    @user = User.find_by(id: session[:user_id])
+    @corporate = @user.corporates.find(params[:id])
+    if @corporate.update(params.require(:corporate).permit(:corp_name, :aspiration))
+      flash[:success] = "企業情報を更新しました！"
+      redirect_to @user
+    else
+      render 'edit_corp'
+    end
+  end
+  
+  def edit
+    @user = User.find_by(id: session[:user_id])
+    @corporate = @user.corporates.find(params[:id])
+  end
+  
+  
   def detail
     @user = User.find_by(id: session[:user_id])
     @corporate = @user.corporates.find_by(id: params[:id])
