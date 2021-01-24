@@ -19,7 +19,7 @@ class CorporatesController < ApplicationController
   
   def update
     @user = User.find_by(id: session[:user_id])
-    @corporate = @user.corporates.find(params[:id])
+    @corporate = Corporate.find(params[:id])
     if @corporate.update(params.require(:corporate).permit(:corp_name, :aspiration))
       flash[:success] = "企業情報を更新しました！"
       redirect_to @user
@@ -30,16 +30,20 @@ class CorporatesController < ApplicationController
   
   def edit
     @user = User.find_by(id: session[:user_id])
-    @corporate = @user.corporates.find(params[:id])
+    @corporate = Corporate.find(params[:id])
   end
   
   
   def detail
     @user = User.find_by(id: session[:user_id])
-    @corporate = @user.corporates.find_by(id: params[:id])
+    @corporate = Corporate.find(params[:id])
   end
   
-  def destroys
+  def destroy
+    @user = User.find_by(id: session[:user_id])
+    Corporate.find(params[:id]).destroy
+    flash[:success] = "企業情報を削除しました"
+    redirect_to @user
   end
 
 end
