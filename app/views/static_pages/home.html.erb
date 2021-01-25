@@ -1,3 +1,19 @@
+<% if logged_in? %>
+<h1>これから社会人として羽ばたく</h1>
+<h3>私たちにはどんな未来が待っているだろう。</h3>
+
+<div　class="row">
+  <div class="col-md-6 signup-login-contain">
+    <h2>My就活は就職活動を頑張る学生に向けた就職管理アプリです</h2>
+    <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+  <div class="col-md-6">
+    <img class="home-picture" src="/assets/home_picture.png" alt="">
+  </div>
+</div>
+
+
+<% else %>
 <div class="center jumbotron">
   <h1>ようこそMy就活アプリへ！</h1>
 
@@ -7,3 +23,4 @@
 
   <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
+<% end %>

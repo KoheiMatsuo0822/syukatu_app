@@ -1,13 +1,20 @@
 <% provide(:title, @corporate.corp_name) %>
 
 <h1><%= @corporate.corp_name %>の詳細</h1>
-<li id="corporate-detail">
-  <span class="corp-name">企業名：<%= @corporate.corp_name %></span>
-  <span class="aspiration">志望度：<%= @corporate.aspiration %></span>
-  <span class="timestamp">
-    更新：<%= @corporate.updated_at.in_time_zone("Tokyo") %>
-  </span>
-</li>
+<div class="row" id="corporate-detail">
+  <div class="col-md-8">
+    <span class="corp-name">企業名：<%= @corporate.corp_name %></span>
+    <span class="aspiration">志望度：<%= @corporate.aspiration %></span>
+    <span class="mypage_url">マイページURL：<%= @corporate.mypage_url %></span>
+    <span class="mypage_id">マイページID：<%= @corporate.mypage_id %></span>
+    <span class="mypage_password">マイページパスワード：<%= @corporate.mypage_password %></span>
+    <span class="next_selection">次回の選考：<%= @corporate.next_selection %></span>
+    <span class="remarks">備考：<%= @corporate.remarks %></span>
+    <span class="timestamp">
+      更新：<%= @corporate.updated_at.in_time_zone("Tokyo") %>
+    </span>
+  </div>
+</div>
 
 <%= link_to "編集する", edit_corp_path, class: "btn btn-lg btn-primary" %>
 <%= link_to "削除する", @corporate, method: :delete, class: "btn btn-lg btn-danger",

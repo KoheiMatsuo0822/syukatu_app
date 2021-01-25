@@ -1,4 +1,5 @@
 <% provide(:title, "企業の登録") %>
+<h1>企業の登録</h1>
 
 <div class="row">
   <div class="col-md-6">
@@ -9,6 +10,21 @@
       
       <%= f.label :aspiration, "志望度" %>
       <%= f.text_field :aspiration, class: 'form-control' %>
+      
+      <%= f.label :mypage_url, "マイページURL" %>
+      <%= f.text_field :mypage_url, class: 'form-control' %>
+      
+      <%= f.label :mypage_id, "マイページID" %>
+      <%= f.text_field :mypage_id, class: 'form-control' %>
+      
+      <%= f.label :mypage_password, "マイページパスワード" %>
+      <%= f.text_field :mypage_password, class: 'form-control' %>
+      
+      <%= f.label :next_selection, "次回の選考" %>
+      <%= f.text_field :next_selection, class: 'form-control' %>
+      
+      <%= f.label :remarks, "備考" %>
+      <%= f.text_field :remarks, class: 'form-control' %>
       
       <%= f.submit "企業を登録する", class: "btn btn-primary" %>
     <% end %>
