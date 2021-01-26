@@ -8,7 +8,7 @@ class CorporatesController < ApplicationController
   
   def create
     @user = User.find_by(id: session[:user_id])
-    @corporate = @user.corporates.build(params.require(:corporate).permit(:corp_name, :aspiration, :mypage_url, :mypage_password, :next_selection, :remarks, :mypage_id))
+    @corporate = @user.corporates.build(params.require(:corporate).permit(:corp_name, :aspiration, :mypage_url, :mypage_password, :next_selection, :remarks, :mypage_id, :event_day))
     if @corporate.save
       flash[:success] = "企業の登録に成功しました！"
       redirect_to @user
@@ -20,11 +20,11 @@ class CorporatesController < ApplicationController
   def update
     @user = User.find_by(id: session[:user_id])
     @corporate = Corporate.find(params[:id])
-    if @corporate.update(params.require(:corporate).permit(:corp_name, :aspiration, :mypage_url, :mypage_password, :next_selection, :remarks, :mypage_id))
+    if @corporate.update(params.require(:corporate).permit(:corp_name, :aspiration, :mypage_url, :mypage_password, :next_selection, :remarks, :mypage_id, :event_day))
       flash[:success] = "企業情報を更新しました！"
       redirect_to @user
     else
-      render 'edit_corp'
+      render 'edit'
     end
   end
   

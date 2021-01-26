@@ -1,0 +1,12 @@
+<% if @corporate.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      以下の<%= pluralize(@corporate.errors.count, "つのエラーがあります") %>
+    </div>
+    <ul>
+    <% @corporate.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

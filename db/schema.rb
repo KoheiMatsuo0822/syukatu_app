@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_25_011331) do
+ActiveRecord::Schema.define(version: 2021_01_26_002123) do
 
   create_table "corporates", force: :cascade do |t|
     t.string "corp_name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_01_25_011331) do
     t.string "next_selection"
     t.text "remarks"
     t.string "mypage_id"
+    t.date "event_day"
     t.index ["user_id", "updated_at"], name: "index_corporates_on_user_id_and_updated_at"
     t.index ["user_id"], name: "index_corporates_on_user_id"
   end

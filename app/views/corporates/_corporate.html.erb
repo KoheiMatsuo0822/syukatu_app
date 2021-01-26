@@ -1,7 +1,14 @@
-<li id="corporate-<%= corporate.id %>">
-  <span class="corp-name"><%= link_to corporate.corp_name, detail_path(corporate.id) %></span>
-  <span class="aspiration">志望度：<%= corporate.aspiration %></span>
-  <span class="timestamp">
-    更新：<%= corporate.updated_at.in_time_zone("Tokyo") %>
-  </span>
+<li id="corporate-<%= corporate.id %>" class ="corp-details">
+  <p class="corp-name"><%= link_to corporate.corp_name, detail_path(corporate.id) %></p>
+  <p class="aspiration">  志望度：<%= corporate.aspiration %></p>
+  <p class="event-day">次回イベントの日付：
+  <% if corporate.event_day %>
+    <%= corporate.event_day %>
+  <% else %>
+    <%= "未定" %>
+  <% end %>
+  </p>
+  <p class="timestamp">
+      更新：<%= l corporate.updated_at %>
+  </p>
 </li>

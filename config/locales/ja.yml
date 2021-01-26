@@ -1,0 +1,13 @@
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+  activerecord:
+    attributes:
+      corporate:
+        corp_name: 企業名
+        aspiration: 志望度
+      user:
+        name: 名前
+        email: メール
+        password: パスワード

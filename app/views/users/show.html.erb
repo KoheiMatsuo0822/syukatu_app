@@ -10,13 +10,14 @@
       <h2><%= link_to "企業を登録する", new_corp_path %></h2>
     </section>
   </aside>
-  <div class="col-md-8">
+  <div class="col-md-6 col-md-offset-1">
     <section class="corp-list">
       <h1>登録企業一覧</h1>
       <% if @user.corporates.any? %>
         <ul class="corp-list">
           <%= render @corporates %>
         </ul>
+        <%= will_paginate @corporates, previous_label: '&lt 前へ', next_label: '次へ &gt' %>
       <% end %>
     </section>
   </div>

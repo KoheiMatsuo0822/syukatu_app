@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @corporates = @user.corporates
+    @corporates = @user.corporates.paginate(page: params[:page], per_page: 5)
     @corporate = @corporates.find_by(id: params[:id])
   end
   
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "アカウント作成に成功しました！"
-      redirect_to @user
+      redirect_to root_path
     else
       render 'new'
     end
