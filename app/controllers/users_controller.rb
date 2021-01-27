@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @corporates = @user.corporates.paginate(page: params[:page], per_page: 5)
+    @corporates = @user.corporates.paginate(page: params[:page], per_page: 10)
     @corporate = @corporates.find_by(id: params[:id])
   end
   
