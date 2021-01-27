@@ -58,7 +58,7 @@ herokuURL: (https://protected-ravine-52873.herokuapp.com/)
 
 ## 今後の改善  
 ・機能の追加(志望度や次回イベント日時によるソート、イベント前のアラーム機能など)  
-・MySQLへの変更(現在はSQLite3)
+・MySQLへの変更(現在はSQLite3)  
 ・AWSを用いたデプロイ  
 ・Dockerを用いた開発環境の導入  
 ・きれいなコーディングを心がける(scssの書き分け、不必要なコードを削るなど)  
