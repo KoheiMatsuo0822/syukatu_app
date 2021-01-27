@@ -37,10 +37,13 @@
 
 ![image](https://user-images.githubusercontent.com/75352856/105963359-4278c680-60c4-11eb-93ba-13f68d8c3fb1.png)  
 登録した企業情報の詳細を確認できるページです。
-
-  
+<br>  
 ## 本番環境  
 
 herokuURL: (https://protected-ravine-52873.herokuapp.com/)  
-
+<br>
+※以下のメールアドレスとパスワードで管理者ログインできます。  
+メール：admin@example.com パスワード：password  
+※以下のメールアドレスとパスワードで通常ログインできます。  
+メール：user@example.com パスワード：password  
 
