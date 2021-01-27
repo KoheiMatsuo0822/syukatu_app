@@ -1,5 +1,7 @@
 class CorporatesController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:create, :update, :detail, :destroy]
+  before_action :correct_user, only: [:update, :detail, :edit, :update, :destroy]
+  
   
   def new
     @user = User.find_by(id: session[:user_id])
@@ -45,5 +47,22 @@ class CorporatesController < ApplicationController
     flash[:success] = "企業情報を削除しました"
     redirect_to @user
   end
+  
+  
+  private
+  
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:dabger] = "ログインしてください。"
+        redirect_to login_url
+      end
+    end
+    
+    def correct_user
+      @corporate = Corporate.find(params[:id])
+      @user = User.find(@corporate.user_id)
+      redirect_to(root_url) unless current_user?(@user)
+    end
 
 end

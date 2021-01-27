@@ -31,12 +31,6 @@ class CorporateTest < ActiveSupport::TestCase
     assert_not @corporate.valid?
   end
   
-  test "aspiration should be at most 5 characters" do
-    @corporate.aspiration = "a" * 6
-    assert_not @corporate.valid?
-  end
-  
-  
   test "order should be most recent first" do
     assert_equal corporates(:most_recent), Corporate.first
   end

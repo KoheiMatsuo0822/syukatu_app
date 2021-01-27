@@ -20,6 +20,7 @@ gem 'bootstrap-select-rails'
 gem "bootstrap4-datetime-picker-rails"
 gem 'momentjs-rails'
 gem "font-awesome-rails"
+gem "dotenv-rails"
 
 
 group :development, :test do

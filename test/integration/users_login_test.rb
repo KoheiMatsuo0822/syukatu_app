@@ -4,6 +4,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   
   def setup
     @user = users(:kohei)
+    @administrator = users(:administrator)
   end
   
   test "login with valid email/invalid password" do
@@ -37,6 +38,20 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", login_path
     assert_select "a[href=?]", logout_path,      count: 0
     assert_select "a[href=?]", user_path(@user), count: 0
+  end
+  
+  test "login as administrator" do
+    get login_path
+    post login_path, params: { session: { email: @administrator.email,
+                                          password: 'password' } }
+    assert is_logged_in?
+    assert_redirected_to @administrator
+    follow_redirect!
+    assert_template 'users/show'
+    assert_select "a[href=?]", login_path, count: 0
+    assert_select "a[href=?]", logout_path
+    assert_select "a[href=?]", user_path(@administrator)
+    assert_select "a[href=?]", index_path
   end
   
   test "login with remembering" do
