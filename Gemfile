@@ -21,6 +21,7 @@ gem "bootstrap4-datetime-picker-rails"
 gem 'momentjs-rails'
 gem "font-awesome-rails"
 gem "dotenv-rails"
+gem "bundler",    '1.17.3'
 
 
 group :development, :test do
