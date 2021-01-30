@@ -2,18 +2,30 @@
 
 <h1><%= @corporate.corp_name %>の詳細</h1>
 <div class="row" id="corporate-detail">
-  <div class="col-md-8 col-md-offset-2">
-    <p class="corp-name">企業名：<%= @corporate.corp_name %></p>
-    <p class="aspiration">志望度：<%= @corporate.aspiration %></p>
+  
+  <div class="col-md-4 col-md-offset-2">
+    <p class="corp-name">企業名：
+    <%= @corporate.corp_name %>
+    </p>
+  </div>
     
+  <div class="col-md-4 col-md-offset-2">
+    <p class="aspiration">志望度：
+    <%= @corporate.aspiration %>
+    </p>
+  </div>
+  
+  <div class="col-md-8 col-md-offset-2">
     <p class="mypage_url">マイページURL：
     <% if @corporate.mypage_url.blank? %>
       <%= "未記入" %>
     <% else %>
-      <%= @corporate.mypage_url %>
+      <%= link_to @corporate.mypage_url, @corporate.mypage_url %>
     <% end %>
     </p>
-    
+  </div>
+  
+  <div class="col-md-4 col-md-offset-2">
     <p class="mypage_id">マイページID：
     <% if @corporate.mypage_id.blank? %>
       <%= "未記入" %>
@@ -21,7 +33,9 @@
       <%= @corporate.mypage_id %>
     <% end %>
     </p>
+  </div>
     
+  <div class="col-md-4 col-md-offset-2">
     <p class="mypage_password">マイページパスワード：
     <% if @corporate.mypage_password.blank? %>
       <%= "未記入" %>
@@ -29,7 +43,9 @@
       <%= @corporate.mypage_password %>
     <% end %>
     </p>
+  </div>
     
+  <div class="col-md-4 col-md-offset-2">
     <p class="next_selection">次回の選考：
     <% if @corporate.next_selection.blank? %>
       <%= "未定" %>
@@ -37,7 +53,9 @@
       <%= @corporate.next_selection %>
     <% end %>
     </p>
+  </div>
     
+  <div class="col-md-4 col-md-offset-2">
     <p class="event_day">次回イベントの日付：
     <% if @corporate.event_day %>
       <%= @corporate.event_day %>
@@ -45,7 +63,15 @@
       <%= "未定" %>
     <% end %>
     </p>
+  </div>
+  
+  <div class="col-md-4 col-md-offset-2">
+    <p class="timestamp">
+      更新：<%= l @corporate.updated_at %>
+    </p>
+  </div>
     
+  <div class="col-md-8 col-md-offset-2">
     <p class="remarks">備考：
     <% if @corporate.remarks.blank? %>
       <%= "未記入" %>
@@ -53,12 +79,10 @@
       <%= @corporate.remarks %>
     <% end %>
     </p>
-    
-    <p class="timestamp">
-      更新：<%= l @corporate.updated_at %>
-    </p>
   </div>
+  
 </div>
     <%= link_to "編集する", edit_corp_path, class: "btn btn-lg btn-primary" %>
     <%= link_to "削除する", @corporate, method: :delete, class: "btn btn-lg btn-danger",
                                           data: { confirm: "本当に削除しますか？" } %>
+    <%= link_to "マイページに戻る", current_user, class: "back-button" %>
