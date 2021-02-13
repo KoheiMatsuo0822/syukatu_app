@@ -1,4 +1,4 @@
-# MySyukatsu  
+# MySyukatsu (更新：2021.2.13 AWSを用いたデプロイを行いました。)
 
 就活を頑張る大学生に向けた就職活動管理アプリ  
   
@@ -14,7 +14,9 @@
 ## 使用言語・環境  
 
 言語・フレームワーク：　Ruby(2.6.3) , Ruby on Rails(6.0.3)  
-環境：cloud9  
+インフラ： AWS  
+データベース： MySQL (HerokuURLはSQLite)  
+エディタ：cloud9  
 
 <br>  
 
@@ -41,6 +43,7 @@
 <br>  
   
 ## 本番環境  
+AWSデプロイでのURL: (http://app.mysyukatsu.click/)  
 herokuURL: (https://protected-ravine-52873.herokuapp.com/)  
 ※以下のメールアドレスとパスワードで管理者ログインできます。  
 メール：admin@example.com パスワード：password  
@@ -57,9 +60,7 @@ herokuURL: (https://protected-ravine-52873.herokuapp.com/)
 <br>  
 
 ## 今後の改善  
-・機能の追加(志望度や次回イベント日時によるソート、イベント前のアラーム機能など)  
-・MySQLへの変更(現在はSQLite3)  
-・AWSを用いたデプロイ  
+・機能の追加(志望度や次回イベント日時によるソート、イベント前のアラーム機能など)   
 ・Dockerを用いた開発環境の導入  
 ・きれいなコーディングを心がける(scssの書き分け、不必要なコードを削るなど)  
 
@@ -68,4 +69,4 @@ herokuURL: (https://protected-ravine-52873.herokuapp.com/)
 ## ひとこと  
 Railsを始めて1ヶ月程度なので当然ですが、開発していく中で「自分はまだまだだな」と痛感します。  
 本アプリの改善や新しいアプリの開発の中でこれからも腕を磨き続けていきます。  
-足りない点、改善すべき箇所などご指摘いただけると幸いです。  
+足りない点、改善すべき箇所などご指摘いただけますと幸いです。  
